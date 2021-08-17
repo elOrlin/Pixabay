@@ -2,9 +2,6 @@ import React, {useState, useEffect} from 'react';
 import Formulario from './components/Formulario';
 import ListadoImagenes from './components/ListadoImagenes';
 
-import {Provider} from 'react-redux';
-import store from './store';
-
 function App() {
 
   const [busqueda, guardarBusqueda] = useState('');
@@ -55,7 +52,6 @@ function App() {
   }
   
   return (
-    <Provider store={store}>
         <div className="container">
           <div className="jumbotron">
               <p className="lead text-center ">Buscador de Imaganes</p>
@@ -88,7 +84,6 @@ function App() {
               )}
           </div>
         </div>
-    </Provider>
   );
 }
 
