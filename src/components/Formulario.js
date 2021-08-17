@@ -1,16 +1,7 @@
 import React, {useState} from 'react';
 import Error from './Error';
-import { useDispatch, useSelector } from 'react-redux';
-
-//Action de Redux
-import { crearNuevoProductoAction } from '../actions/productosActions';
 
 const Formulario = ({guardarBusqueda}) => {
-
-    const dispatch = useDispatch();
-
-    //Action de Redux
-    const agregarProducto = producto => dispatch(crearNuevoProductoAction(producto) )
 
     const [termino, guardarTermino] = useState('');
     const [error, guardarError] = useState(false);
@@ -19,6 +10,7 @@ const Formulario = ({guardarBusqueda}) => {
         e.preventDefault();
 
         if(termino.trim() === ''){
+            
             guardarError(true);
             return;
         }
@@ -26,8 +18,6 @@ const Formulario = ({guardarBusqueda}) => {
         guardarError(false);
         
         guardarBusqueda(termino);
-
-        agregarProducto(termino)
 
     }
 
